@@ -1,0 +1,136 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Studio Hair | Peluquería</title>
+  <style>
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #faf7f3;
+      color: #302821;
+      line-height: 1.6;
+    }
+    header { background: #46352f; color: #fffaf5; }
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      align-items: center;
+      padding: 22px 7%;
+    }
+    nav a { color: inherit; text-decoration: none; }
+    nav .logo { font-weight: bold; letter-spacing: 3px; margin-right: auto; }
+    .hero { padding: 65px 8% 80px; }
+    .tag { color: #a4775e; letter-spacing: 2px; font-size: 12px; }
+    .hero .tag { color: #e4bda3; }
+    h1, h2, h3 { font-family: Georgia, serif; font-weight: normal; }
+    h1 { font-size: clamp(42px, 9vw, 72px); line-height: 1.1; }
+    h2 { font-size: 36px; }
+    section { max-width: 1000px; margin: auto; padding: 55px 8%; }
+    .intro { color: #766c63; }
+    .services { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .service { background: white; border: 1px solid #eee5dc; border-radius: 8px; padding: 20px; }
+    .price { font-weight: bold; }
+    .button {
+      display: inline-block; padding: 12px 20px; border: 0;
+      border-radius: 4px; background: #a4775e; color: white;
+      text-decoration: none; cursor: pointer; font: inherit;
+    }
+    .about { background: #eee4da; max-width: none; }
+    label { display: block; margin: 14px 0 5px; }
+    input, textarea {
+      width: 100%; padding: 12px; margin-bottom: 10px;
+      border: 1px solid #d9cec4; border-radius: 4px; font: inherit;
+    }
+    textarea { min-height: 100px; }
+    footer { text-align: center; background: #46352f; color: white; padding: 24px; font-size: 13px; }
+    @media (max-width: 650px) {
+      .services { grid-template-columns: 1fr; }
+      section { padding: 40px 7%; }
+      nav { gap: 12px; }
+    }
+  </style>
+</head>
+<body>
+  <header id="inicio">
+    <nav>
+      <a class="logo" href="#inicio">STUDIO HAIR</a>
+      <a href="#servicios">Servicios</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+    <div class="hero">
+      <p class="tag">TU PELUQUERÍA DE CONFIANZA</p>
+      <h1>Tu estilo.<br>Tu personalidad.</h1>
+      <p>Un espacio para cuidarte, renovarte y sentirte tú.</p>
+      <a class="button" href="#contacto">Pide información</a>
+    </div>
+  </header>
+
+  <main>
+    <section id="servicios">
+      <p class="tag">QUÉ HACEMOS</p>
+      <h2>Un estilo para ti</h2>
+      <p class="intro">Descubre nuestros servicios.</p>
+      <div class="services">
+        <article class="service">
+          <h3>Corte de pelo</h3>
+          <p>Un corte adaptado a tu estilo.</p>
+          <p class="price">Desde 18 €</p>
+        </article>
+        <article class="service">
+          <h3>Coloración</h3>
+          <p>Color y brillo para renovar tu look.</p>
+          <p class="price">Desde 35 €</p>
+        </article>
+        <article class="service">
+          <h3>Peinados</h3>
+          <p>Para tus ocasiones especiales.</p>
+          <p class="price">Desde 20 €</p>
+        </article>
+      </div>
+      <p class="intro">Precios de ejemplo para esta demostración.</p>
+    </section>
+
+    <section class="about">
+      <p class="tag">NUESTRA FILOSOFÍA</p>
+      <h2>Sentirte bien empieza por ti.</h2>
+      <p>Un momento para desconectar, cuidarte y salir con una sonrisa.</p>
+    </section>
+
+    <section id="contacto">
+      <p class="tag">HABLEMOS</p>
+      <h2>¿Qué tienes en mente?</h2>
+      <form id="formulario">
+        <label for="nombre">Tu nombre</label>
+        <input id="nombre" type="text" placeholder="Escribe tu nombre" required>
+        <label for="email">Tu correo electrónico</label>
+        <input id="email" type="email" placeholder="nombre@ejemplo.com" required>
+        <label for="mensaje">¿Qué servicio te interesa?</label>
+        <textarea id="mensaje" placeholder="Cuéntanos qué necesitas" required></textarea>
+        <button class="button" type="submit">Enviar consulta</button>
+        <p id="respuesta" aria-live="polite"></p>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <strong>STUDIO HAIR</strong>
+    <p>Proyecto de demostración</p>
+  </footer>
+
+  <script>
+    document.querySelector("#formulario").addEventListener("submit", function(evento) {
+      evento.preventDefault();
+      const nombre = document.querySelector("#nombre").value.trim();
+      document.querySelector("#respuesta").textContent =
+        "¡Gracias, " + nombre + "! Esta es una demostración: tu consulta no se ha enviado.";
+      this.reset();
+    });
+  </script>
+</body>
+</html>
